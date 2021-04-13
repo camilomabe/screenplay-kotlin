@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.3.31")
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
+}
+
+apply plugin: 'net.serenity-bdd.aggregator'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '2.4.2'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '2.4.2'
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '2.4.2'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: '2.4.2'
+}
+
+gradle.startParameter.continueOnFailure = true
